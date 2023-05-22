@@ -32,7 +32,31 @@ public class soma {
 
 		} while (ask == 'y' || ask == 'Y');
 
+		System.out.println("Program SUM is Termined!");
+		
+		System.out.println("Now this program will calculate a area sphere\n\n");
+
+		
+		do {
+
+			System.out.println("Prime the radius to calculate the area sphere");
+			System.out.print("Radius: ");
+			double radius = sc.nextDouble();
+			
+
+			double area = 3.14159 * Math.pow(radius, radius);
+
+			System.out.printf("The area of sphere radius %.2f is: %.4f\n", radius, area);
+			System.out.print("Wish calculate others area sphere? Prime y to Yes or other to exit: ");
+
+			ask = sc.next().charAt(0);
+			System.out.println("\n");
+
+		} while (ask == 'y' || ask == 'Y');
+
 		System.out.println("Terminated Program!");
+		
+		
 
 		sc.close();
 	}
