@@ -44,14 +44,14 @@ public class soma {
 			double radius = sc.nextDouble();
 			
 
-			double area = 3.14159 * Math.pow(radius, radius);
+			double area = 3.14159 * Math.pow(radius, 2);
 
 			System.out.printf("The area of sphere radius %.2f is: %.4f\n", radius, area);
 			System.out.print("Wish calculate others area sphere? Prime y to Yes or other to exit: ");
 
 			ask = sc.next().charAt(0);
 			System.out.println("\n");
-
+			//radius = 0;
 		} while (ask == 'y' || ask == 'Y');
 
 		System.out.println("Terminated Program!");
