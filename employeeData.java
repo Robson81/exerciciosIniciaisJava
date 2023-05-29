@@ -28,7 +28,7 @@ public class employeeData {
 		salary = workedHour*workedHourValue;
 		System.out.println("========================");
 		System.out.println("Employee ID: " + id);
-		System.out.printf("Salary: %.2f\n", salary);
+		System.out.printf("Salary: U$ %.2f\n", salary);
 		System.out.println("------------------------");
 		sc.nextLine();
 		System.out.print("Wish to cadaster other employee? Prie Y to Yes or other to exit: \n");
