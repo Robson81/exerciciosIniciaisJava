@@ -11,8 +11,8 @@ public class carsParts {
 	
 	Scanner sc = new Scanner(System.in);
 	
-	int code2, code1, quantity1, quantity2; 
-	
+	 
+	int code2, code1, quantity1, quantity2;
 	double unityValue1, unityValue2, totalValue;
 	
 	System.out.println("Enter the data of Cars parts to cadaster: ");
