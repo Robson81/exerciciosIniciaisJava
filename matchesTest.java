@@ -1,15 +1,9 @@
 package ExerciciosParaIniciantes;
 
-import java.util.Scanner;
-
-import entitites.ProdPensionato;
-
 public class matchesTest {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-
-		Scanner sc = new Scanner(System.in);
 		
 		String str = "1";
 		
@@ -32,9 +26,6 @@ public class matchesTest {
 
 		boolean espaco = " ".matches("\\s");
 		System.out.println("Possui espaço? "+espaco);
-
-
-		sc.close();
 	
 	}
 
