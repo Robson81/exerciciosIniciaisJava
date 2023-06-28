@@ -1,9 +1,13 @@
 package ExerciciosParaIniciantes;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Locale;
 import java.util.Scanner;
 
 import classesBPM.AritmeticaClass;
+import classesBPM.ExtruturasdeRepeticao;
 import classesBPM.ExtruturasdeSelecao;
 
 public class aritimeticaSimplesTeste {
@@ -19,19 +23,22 @@ public class aritimeticaSimplesTeste {
 		String e = "DESAFIO";
 		String option = "";
 		String type;
-		//int aux = 0;
+		// int aux = 0;
 		AritmeticaClass aritmetica = new AritmeticaClass();
 		ExtruturasdeSelecao selecao = new ExtruturasdeSelecao();
-		
-		System.out.println("\nESTE PROGRAMA EXECUTARÁ A LISTA DE EXERCÍCIOS DE ALGORITMOS: SELEÇÃO DO BPM LAB\n");
+		ExtruturasdeRepeticao repeticao = new ExtruturasdeRepeticao();
+
+		System.out.println("\nESTE PROGRAMA EXECUTARÁ A LISTA DE EXERCÍCIOS DE ALGORITMOS: SELEÇÃO LAB BPM\n");
 
 		do {
 			System.out.println("Entre com o código do TIPO de exercício, conforme tabela a baixo:");
 			System.out.println("|==================================================================|");
-			System.out.println("| ARITMÉTICA SIMPLES: 1      -  ESTRUTURAS DE SELEÇÃO: 2	   |");
-			System.out.println("| ESTRUTURAS DE REPETIÇÃO: 3 -  ESTRUTURAS DE DADOS - MATRIZES: 4  |");
-			System.out.println("| DESAFIOS: 5 ou 0 PARA SAIR                                       |");
-			System.out.println("| OBS: UNIDADE DE MEDIDA SERÁ CM. UTILIZE . PARA CASAS DECIMAIS    |");
+			System.out.println("| 1 - ARITMÉTICA SIMPLES                                           |");
+			System.out.println("| 2 - ESTRUTURAS DE SELEÇÃO                                        |");
+			System.out.println("| 3 - ESTRUTURAS DE REPETIÇÃO                                      |");
+			System.out.println("| 4 - ESTRUTURAS DE DADOS - MATRIZES                               |");
+			System.out.println("| 5 - DESAFIOS                                                     |");
+			System.out.println("| 0 - PARA SAIR                                                    |");
 			System.out.println("|__________________________________________________________________|");
 
 			System.out.print("Sua opção: ");
@@ -49,6 +56,7 @@ public class aritimeticaSimplesTeste {
 				if (num == 1) {
 					if (count == 0) {
 						System.out.println("\nARITMÉTICA SIMPLES\n");
+						System.out.println("Entre com o código do problema que dejesa resolver: ");
 						System.out.println("|==================================================================|");
 						System.out.println("| 1 - ÁREA DO RETANGULO; 2 - ÁREA DO QUADRADO, DADO SUA ARESTA;    |");
 						System.out.println("| 3 - ÁREA DO QUADRADO, DADO SUA GIAGONAL; 4 - ÁREA DO TRIANGULO   |");
@@ -60,7 +68,7 @@ public class aritimeticaSimplesTeste {
 						System.out.println("| 18 - COMPRA E TROCO; ou 0 para SAIR                              |");
 						System.out.println("|__________________________________________________________________|");
 						count++;
-						System.out.print("\nEntre com o código do problema que dejesa resolver: ");
+						System.out.print("Sua opção: ");
 						type = sc.next();
 
 						if (isNumeric(type) != null)
@@ -245,19 +253,20 @@ public class aritimeticaSimplesTeste {
 
 					if (count == 0) {
 						System.out.println("\nESTRUTURAS DE SELEÇÃO\n");
+						System.out.println("Entre com o código do problema que dejesa resolver: ");
 						System.out.println("|==================================================================|");
 						System.out.println("| 1 - MAIOR VALOR - MENOR VALOR;                                   |");
-						System.out.println("| 2 - TERRENO GRANDE;         				           |"            );
+						System.out.println("| 2 - TERRENO GRANDE;         				           |");
 						System.out.println("| 3 - TERRENO GRANDE VS TERRENO PEQUENO;                           |");
 						System.out.println("| 4 - PESO IDEAL, CONSIDERANDO SEXO                                |");
 						System.out.println("| 5 - CONDIÇÃO DE EXISTÊNCIA E TIPO DO TRIANGULO;                  |");
-						System.out.println("| 7 - VELOCIDADE PERMITIDA; 				           |"            );
-						System.out.println("| 8 - ALUNO APROVADO;        				           |"            );
+						System.out.println("| 7 - VELOCIDADE PERMITIDA; 				           |");
+						System.out.println("| 8 - ALUNO APROVADO;        				           |");
 						System.out.println("| 9 - NOTA PARA APROVAÇÃO;                                         |");
 						System.out.println("| 0 - Para SAIR                                                    |");
 						System.out.println("|__________________________________________________________________|");
 						count++;
-						System.out.print("\nEntre com o código do problema que dejesa resolver: ");
+						System.out.print("Sua opção: ");
 						type = sc.next();
 
 						if (isNumeric(type) != null)
@@ -266,62 +275,63 @@ public class aritimeticaSimplesTeste {
 					}
 
 					if (exer == 1) {
-						
+
 						System.out.println("\nMAIOR VALOR E MENOR VALOR:");
 						System.out.print("Informe a quantidade de elementos de deseja verificar:  ");
 						int n = sc.nextInt();
 						ExtruturasdeSelecao[] vect = new ExtruturasdeSelecao[n];
 						double maior = -100000000;
-						double menor =  100000000;
+						double menor = 100000000;
 						for (int i = 0; i < vect.length; i++) {
-							System.out.print("Entre com o " + (i+1)+ "º valor: ");
+							System.out.print("Entre com o " + (i + 1) + "º valor: ");
 							double x = sc.nextDouble();
 							vect[i] = new ExtruturasdeSelecao(x);
-							if (vect[i].getNum() > maior) 
+							if (vect[i].getNum() > maior)
 								maior = vect[i].getNum();
-							if (vect[i].getNum() < menor) 
-						        menor = vect[i].getNum();
-							
-							}
-						if(maior!=menor){
-						System.out.printf("O Maior número é: %.1f\n", maior);
-						System.out.printf("O Menor número é: %.1f\n", menor);
-						}else															
-						System.out.printf("Os valores digitados são iguais\n");
-					}  else if (exer == 2) {
+							if (vect[i].getNum() < menor)
+								menor = vect[i].getNum();
+
+						}
+						if (maior != menor) {
+							System.out.printf("O Maior número é: %.1f\n", maior);
+							System.out.printf("O Menor número é: %.1f\n", menor);
+						} else
+							System.out.printf("Os valores digitados são iguais\n");
+					} else if (exer == 2) {
 						System.out.println("\nTERRENO GRANDE:");
-						
-							System.out.println("Informe as médidas do terreno (em metros) para verificar seu tamanho: ");
-							System.out.print("Comprimento: ");
-							double width = sc.nextDouble();
-							System.out.print("Largura: ");
-							double height = sc.nextDouble();
-							double area = aritmetica.quadrilateralArea(width, height);
-							if (area>100)
-						System.out.println("O área é maior do que 100m², portanto, é um Terreno Grande");
-						System.out.printf("Área do terreno é: %.2f\n", area);
-				
-						} else if (exer == 3) {
+
+						System.out.println("Informe as médidas do terreno (em metros) para verificar seu tamanho: ");
+						System.out.print("Comprimento: ");
+						double width = sc.nextDouble();
+						System.out.print("Largura: ");
+						double height = sc.nextDouble();
+						double area = aritmetica.quadrilateralArea(width, height);
+						if (area > 100)
+							System.out.println("O área é maior do que 100m², portanto, é um Terreno Grande");
+						System.out.printf("Área do terreno é: %.2f m²\n", area);
+
+					} else if (exer == 3) {
 						ExtruturasdeSelecao[] vect = new ExtruturasdeSelecao[2];
 						System.out.println("\nTERRENO GRANDE VS TERRENO PEQUENO:");
 						for (int i = 0; i < vect.length; i++) {
-							System.out.printf("Informe as médidas do %d terreno (em metros) para verificar seu tamanho: \n", i+1);
+							System.out.printf(
+									"Informe as médidas do %d terreno (em metros) para verificar seu tamanho: \n",
+									i + 1);
 							System.out.print("Comprimento: ");
 							double width = sc.nextDouble();
 							System.out.print("Largura: ");
 							double height = sc.nextDouble();
-							vect[i] = new ExtruturasdeSelecao(width, height);	
+							vect[i] = new ExtruturasdeSelecao(width, height);
 						}
-						
-						if(vect[0].getWidth()*vect[0].getHeight() != vect[1].getWidth()*vect[1].getHeight()) {
-						if(vect[0].getWidth()*vect[0].getHeight() > vect[1].getWidth()*vect[1].getHeight())
-						    System.out.println("\nO primeiro terreno é Maior");
-						else
-							System.out.println("\nO segundo terreno é Maior");
-						}else	
+
+						if (vect[0].getWidth() * vect[0].getHeight() != vect[1].getWidth() * vect[1].getHeight()) {
+							if (vect[0].getWidth() * vect[0].getHeight() > vect[1].getWidth() * vect[1].getHeight())
+								System.out.println("\nO primeiro terreno é Maior");
+							else
+								System.out.println("\nO segundo terreno é Maior");
+						} else
 							System.out.println("Os terrenos são do mesmo tamanho");
-					
-						
+
 					} else if (exer == 4) {
 						System.out.println("\nPESO IDEAL, CONSIDERANDO SEXO:");
 						System.out.println("Informe os dados a baixo: ");
@@ -334,17 +344,17 @@ public class aritimeticaSimplesTeste {
 						double peso = sc.nextDouble();
 						System.out.println();
 						System.out.println(selecao.imc(sexo, altura, peso));
-						//System.out.println();
+						// System.out.println();
 					} else if (exer == 5) {
 						System.out.println("\nCONDIÇÃO DE EXISTÊNCIA E TIPO DO TRIANGULO:");
 						System.out.print("Informe o PRIMEIRO cateto: ");
-						double la = sc.nextDouble(); 
+						double la = sc.nextDouble();
 						System.out.print("Informe o SEGUNDO cateto: ");
-						double lb = sc.nextDouble(); 
+						double lb = sc.nextDouble();
 						System.out.print("Informe o TERCEIRO cateto: ");
-						double lc = sc.nextDouble(); 
+						double lc = sc.nextDouble();
 						System.out.println(selecao.triangleTest(la, lb, lc));
-						
+
 					} else if (exer == 6) {
 						System.out.println("\nTESTE DO RETANGULO:");
 						double multiply = 1;
@@ -360,24 +370,39 @@ public class aritimeticaSimplesTeste {
 						System.out.printf("Média Geométrica: %.2f\n", average);
 					} else if (exer == 7) {
 						System.out.println("\nVELOCIDADE PERMITIDA:");
-						System.out.print("Milhas nauticas a Converter: ");
-						double nauticalMiles = sc.nextDouble();
-						double km = aritmetica.nauticalMilesConverter(nauticalMiles);
-						System.out.printf("Kilometros correspondentes: %.2f km\n", km);
+						System.out.print("Entre com a velocidade inicial em m/s: ");
+						double vInicial = sc.nextDouble();
+						System.out.print("Entre com o tempo do percurso em segundos: ");
+						double tempo = sc.nextDouble();
+						System.out.print("Entre com a acelaração escalar do veículo: ");
+						double aceleracao = sc.nextDouble();
+						System.out.print(selecao.finalVelocity(vInicial, tempo, aceleracao));
 					} else if (exer == 8) {
 						System.out.println("\nALUNO APROVADO:");
-						System.out.print("Entre com o Valor da Corrente Elétrica: ");
-						double corrente = sc.nextDouble();
-						System.out.print("Entre com o Valor da diferença de potencial DDP: ");
-						double ddp = sc.nextDouble();
-						double resistencia = aritmetica.ohmsLaw(corrente, ddp);
-						System.out.printf("A Resistência elétrica do circuito é: %.2f ohms\n", resistencia);
+						List<Double> notas = new ArrayList<>();
+						double media = 0;
+						for (int i = 0; i < 2; i++) {
+							System.out.print("Informe a nota da " + (i + 1) + "º avaliação: ");
+							notas.add(sc.nextDouble());
+						}
+
+						media = (notas.get(0) + (notas.get(1) * 2)) / 3;
+						if (media >= 5) {
+							System.out.println("Aluno Aprovado");
+						} else
+							System.out.println("Aluno Reprovado");
 					} else if (exer == 9) {
 						System.out.println("\nNOTA PARA APROVAÇÃO:");
-						System.out.print("Entre com o a temperatura em Graus Celcius: ");
-						double graus = sc.nextDouble();
-						double farhenheit = aritmetica.fahrenheitConverter(graus);
-						System.out.printf("A Temperatura em Resistência farhenheit é: %.2f ºF\n", farhenheit);
+						List<Double> notas = new ArrayList<>();
+						double media = 5;
+						double nFinal;
+						System.out.print("Informe a nota da  1ª avaliação: ");
+						notas.add(sc.nextDouble());
+						nFinal = ((3 * media) - notas.get(0)) / 2;
+						notas.add(nFinal);
+						System.out.println(
+								"A sua nota final para conseguir aprovação deve ser maior ou igual a: " + notas.get(1));
+
 					} else {
 						System.out.print("\nOpção Inválida! Entre com o código do problema, conforme tabela: ");
 						type = sc.next();
@@ -394,8 +419,160 @@ public class aritimeticaSimplesTeste {
 						num = -1;
 
 				} else if (num == 3) {
-					System.out.println("ESTRUTURAS DE REPETIÇÃO");
-					num = -1;
+					if (count == 0) {
+						System.out.println("\nESTRUTURAS DE REPETIÇÃO\n");
+						System.out.println("Entre com o código do problema que dejesa resolver: ");
+						System.out.println("|=====================================================================|");
+						System.out.println("| 1  - APENAS POSITIVOS;           2 - SEGUNDO MAIOR QUE O PRIMEIRO;  |");
+						System.out.println("| 3  - SEXO FEMININO OU MASCULINO; 4 - TABUADA DO 5   		      |");
+						System.out.println("| 5  - TABUADA DE UM POSITIVO;     6 - TABUADA PARCIAL DE UM POSITIVO;|");
+						System.out.println("| 7  - TABUADA DE 1 A 20;          8 - SOMA DE 1 A 100;               |");
+						System.out.println("| 9  - FIBONACCI;                  10 - BARGAMASCHI;                  |");
+						System.out.println("| 11 - N NÚMERO DE SEQUÊNCIAS V1;  12 - N NÚMERO DE SEQUÊNCIAS V2;    |");
+						System.out.println("| 13 - N NÚMERO DE SEQUÊNCIAS V3;  14 -  MAIOR, SOMA MÉDIA            |");
+						System.out.println("| 15 - MAIOR, MENOR, SOMA, MÉDIA POSITIVOS E NEATIVOS V1;             |");
+						System.out.println("| 16 - MAIOR, MENOR, SOMA, MÉDIA POSITIVOS E NEATIVOS V2;             |");
+						System.out.println("| 17 - FATORIAL;                   18 - MEGA SENA;                    |");
+						System.out.println("|  0 - PARA SAIR                                                      |");
+						System.out.println("|_____________________________________________________________________|");
+						count++;
+						System.out.print("Sua opção: ");
+						type = sc.next();
+
+						if (isNumeric(type) != null)
+							exer = Integer.valueOf(type);
+					}
+
+					if (exer == 1) {
+						System.out.println("\nAPENAS POSITIVOS:\n");
+						double number;
+						do {
+							System.out.print("Entre com um valor: ");
+							number = sc.nextDouble();
+							String valido = (number < 1) ? "\nValor inválido para esta operação.\n"
+									: "\nValor válido para está operação.\n";
+							System.out.println(valido);
+
+						} while (number <= 1);
+
+					} else if (exer == 2) {
+						System.out.println("\nSEGUNDO MAIOR QUE O PRIMEIRO:");
+						double[] number = new double[2];
+						double aux = 0;
+						System.out.println("Entre com 2 valores consecutivos e em ordem crescente.");
+						for (int i = 0; i < number.length; i++) {
+							System.out.print((i + 1) + "º valor: ");
+							number[i] = sc.nextDouble();
+							if (number[i] > aux)
+								aux = number[i];
+							else {
+								System.out.println("O valor digitado não obedece a condição.");
+								i = 0;
+							}
+						}
+
+						System.out.println("Os valores digitados em ordem crescente foram:");
+						for (double x : number) {
+							System.out.println(x);
+						}
+					} else if (exer == 3) {
+						System.out.println("\nSEXO FEMININO OU MASCULINO:");
+						String opcao;
+						String sexo;
+						sc.nextLine();
+						do {
+							System.out.print("\nInforme seu Gênero Sexual (M para masculino ou F para feminino): ");
+							opcao = sc.nextLine().toLowerCase();
+							sexo = (opcao.charAt(0) == 'f') ? "Feminino"
+									: (opcao.charAt(0) == 'm') ? "Masculino" : "Resposta Inválida";
+
+							if (opcao.charAt(0) != 'f' && opcao.charAt(0) != 'm')
+								System.out.println("\n" + sexo);
+						} while (sexo == "Resposta Inválida");
+						System.out.println("\nGenero Sexual Informado: " + sexo);
+
+					} else if (exer == 4) {
+						System.out.println("\nTABUADA DO 5:");
+						int numero = 5;
+						
+						int[] vect = new int[11];
+						
+						for (int i = 0; i < vect.length; i++) {
+							vect[i] = numero*i;
+							if(vect[i]!=0)
+							System.out.println(i +" x " + numero + ": " + vect[i]);
+						}
+					} else if (exer == 5) {
+						System.out.println("\nTABUADA DE UM POSITIVO:");
+						Integer numero;
+						Integer valido;
+						int[] vect = new int[11];
+						do {
+							System.out.print("\nInforme um número positivo para exibir sua tabuada de 1 a 10): ");
+							numero = sc.nextInt();
+							valido = (numero>0) ? numero : -1;
+							
+						} while (valido==-1);
+						System.out.println("\nTABUADA DO "+ numero+":");
+
+						for (int i = 0; i < vect.length; i++) {
+							vect[i] = numero*i;
+							if(vect[i]!=0)
+							System.out.println(i +" x " + numero + ": " + vect[i]);
+						}
+					} else if (exer == 6) {
+						System.out.println("\nTABUADA PARCIAL DE UM POSITIVO:");
+
+					} else if (exer == 7) {
+						System.out.println("\nTABUADA DE 1 A 20:");
+
+					} else if (exer == 8) {
+						System.out.println("\nSOMA DE 1 A 100:");
+
+					} else if (exer == 9) {
+						System.out.println("\nFIBONACCI:");
+
+					} else if (exer == 10) {
+						System.out.println("\nBARGAMASCHI:");
+
+					} else if (exer == 11) {
+						System.out.println("\nN NÚMERO DE SEQUÊNCIAS V1:");
+
+					} else if (exer == 12) {
+						System.out.println("\nN NÚMERO DE SEQUÊNCIAS V2:");
+
+					} else if (exer == 13) {
+						System.out.println("\nN NÚMERO DE SEQUÊNCIAS V3:");
+
+					} else if (exer == 14) {
+						System.out.println("\nMAIOR, SOMA MÉDIA:");
+
+					} else if (exer == 15) {
+						System.out.println("\nMAIOR, MENOR, SOMA, MÉDIA POSITIVOS E NEATIVOS V1:");
+
+					} else if (exer == 16) {
+						System.out.println("\nMAIOR, MENOR, SOMA, MÉDIA POSITIVOS E NEATIVOS V2:");
+
+					} else if (exer == 17) {
+						System.out.println("\nFATORIAL:");
+
+					} else if (exer == 18) {
+						System.out.println("\nMEGA SENA:");
+
+					} else {
+						System.out.print("\nOpção Inválida! Entre com o código do problema, conforme tabela: ");
+						type = sc.next();
+
+						if (isNumeric(type) != null)
+							exer = Integer.valueOf(type);
+					}
+					System.out.print("\nPara continuar, entre com o código do problema ou 0 para sair: ");
+					type = sc.next();
+
+					if (isNumeric(type) != null)
+						exer = Integer.valueOf(type);
+					if (exer == 0)
+						num = -1;
 
 				} else if (num == 4) {
 					System.out.println("ESTRUTURAS DE DADOS - MATRIZES");
