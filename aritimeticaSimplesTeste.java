@@ -637,31 +637,93 @@ public class aritimeticaSimplesTeste {
 								"\nSOMA DOS N PRIMEIROS ELEMENTOS DA SEQUÊCIA 2, 5, 10, 17, 26, 37, 50, 65, 82, 101, ... :\n");
 						int j;
 						do {
-						System.out.print(
-								"Informe quantos dos primeiros elementos desejar realizar a soma (Informar um valor positivo e menor do que 100): ");
+							System.out.print(
+									"Informe quantos dos primeiros elementos desejar realizar a soma (Informar um valor positivo e menor do que 100): ");
 							j = sc.nextInt();
+							if (j <= 0 || j > 100)
+								System.out.print("erro");
 							System.out.println();
-						}while(j<=0||j>100);
+						} while (j <= 0 || j > 100);
 						System.out.println();
 						int soma = 0;
 						int i = 0;
 						int f1 = 2;
 						int f2 = 3;
 						while (i < j) {
-							
+
 							soma += f1;
 
 							f1 = f2 + f1;
 							f2 = f2 + 2;
 							i++;
 						}
-						
+
 						System.out.printf("O resultado da soma dos %d primeiros termos da sequência é: %d\n", j, soma);
 					} else if (exer == 12) {
 						System.out.println("\nN NÚMERO DE SEQUÊNCIAS V2:");
+						System.out.println(
+								"\nSOMA DOS N PRIMEIROS ELEMENTOS DA SEQUÊCIA 1/2 + 2/3 + 3/4 + 4/5 + 5/6 + 6/7 + 7/8 + 8/9 + 9/10 + 10/11 + ... :\n");
+						int j;
+						do {
+							System.out.print(
+									"Informe quantos dos primeiros elementos desejar realizar a soma (Informar um valor positivo e menor do que 100): ");
+							j = sc.nextInt();
+							if (j <= 0 || j > 100)
+								System.out.print("erro");
+							System.out.println();
+						} while (j <= 0 || j > 100);
+
+						double f1 = 1.0;
+						double f2 = 2.0;
+						double soma = 0;
+						for (int i = 0; i < j; i++) {
+
+							soma += f1 / f2;
+
+							f1 += 1;
+							f2 += 1;
+						}
+
+						System.out.printf("O resultado da soma dos %d primeiros termos da sequência é: %.2f\n", j,
+								soma);
 
 					} else if (exer == 13) {
 						System.out.println("\nN NÚMERO DE SEQUÊNCIAS V3:");
+						System.out.println(
+								"\nSOMA DOS N PRIMEIROS ELEMENTOS DA SEQUÊCIA 2 + 5/8 + 10/27 + 17/64 + 26/125 + 37/216 + 50/343 + 65/512 + 82/729 + 101/1000 + ... :\n");
+						int j;
+						do {
+							System.out.print(
+									"Informe quantos dos primeiros elementos desejar realizar a soma (Informar um valor positivo e menor do que 100): ");
+							j = sc.nextInt();
+							if (j <= 0 || j > 100)
+								System.out.print("erro");
+							System.out.println();
+						} while (j <= 0 || j > 100);
+
+						double f1 = 2.0;
+						double f2 = 1.0;
+						double soma = 0;
+						double aux = 0;
+						for (int i = 0; i < j; i++) {
+
+							soma += f1 / f2;
+
+							if (i == 0) {
+								aux = f1;
+								f1 = Math.pow(f1, 2) + 1;
+
+								f2 = Math.pow(aux, 3);
+							} else {
+								aux++;
+								f1 = Math.pow(aux, 2) + 1;
+
+								f2 = Math.pow(aux, 3);
+							}
+						}
+
+						System.out.printf("O resultado da soma dos %d primeiros termos da sequência é: %.2f\n", j,
+								soma);
 
 					} else if (exer == 14) {
 						System.out.println("\nMAIOR, SOMA MÉDIA:");
