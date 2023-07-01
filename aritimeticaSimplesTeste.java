@@ -6,6 +6,8 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Scanner;
 
+import javax.annotation.processing.SupportedSourceVersion;
+
 import classesBPM.AritmeticaClass;
 import classesBPM.ExtruturasdeRepeticao;
 import classesBPM.ExtruturasdeSelecao;
@@ -494,13 +496,13 @@ public class aritimeticaSimplesTeste {
 					} else if (exer == 4) {
 						System.out.println("\nTABUADA DO 5:");
 						int numero = 5;
-						
+
 						int[] vect = new int[11];
-						
+
 						for (int i = 0; i < vect.length; i++) {
-							vect[i] = numero*i;
-							if(vect[i]!=0)
-							System.out.println(i +" x " + numero + ": " + vect[i]);
+							vect[i] = numero * i;
+							if (vect[i] != 0)
+								System.out.println(i + " x " + numero + ": " + vect[i]);
 						}
 					} else if (exer == 5) {
 						System.out.println("\nTABUADA DE UM POSITIVO:");
@@ -510,34 +512,151 @@ public class aritimeticaSimplesTeste {
 						do {
 							System.out.print("\nInforme um número positivo para exibir sua tabuada de 1 a 10): ");
 							numero = sc.nextInt();
-							valido = (numero>0) ? numero : -1;
-							
-						} while (valido==-1);
-						System.out.println("\nTABUADA DO "+ numero+":");
+							valido = (numero > 0) ? numero : -1;
+
+						} while (valido == -1);
+						System.out.println("\nTABUADA DO " + numero + ":");
 
 						for (int i = 0; i < vect.length; i++) {
-							vect[i] = numero*i;
-							if(vect[i]!=0)
-							System.out.println(i +" x " + numero + ": " + vect[i]);
+							vect[i] = numero * i;
+							if (vect[i] != 0)
+								System.out.println(i + " x " + numero + ": " + vect[i]);
 						}
 					} else if (exer == 6) {
 						System.out.println("\nTABUADA PARCIAL DE UM POSITIVO:");
+						int numero;
+						int[] intervalo = new int[2];
+						int aux = 0;
+						do {
+							System.out.println("\nInforme um número positivo para exibir sua tabuada: ");
+							numero = sc.nextInt();
+						} while (numero <= 0);
+						System.out.println(
+								"\nEntre com 2 valores positivos e em ordem crescente, para definir o intervalo da tabuada a ser exibido");
+						for (int i = 0; i < intervalo.length; i++) {
+							System.out.print((i + 1) + "º valor: ");
+							intervalo[i] = sc.nextInt();
+							if (intervalo[i] > aux)
+								aux = intervalo[i];
+							else {
+								System.out.println("O valor digitado não obedece a condição.");
+								i = 0;
+							}
+						}
+
+						System.out.println("\nTABUADA DO " + numero + ", no intervalo de " + intervalo[1] + " a "
+								+ intervalo[0] + ":");
+						int i = intervalo[1];
+						int j = intervalo[0];
+						while (i >= j) {
+
+							System.out.println(i + " x " + numero + ": " + numero * i);
+							i--;
+						}
 
 					} else if (exer == 7) {
 						System.out.println("\nTABUADA DE 1 A 20:");
+						sc.nextLine();
+						for (int i = 1; i < 21; i++) {
+							System.out.println("\nTABUADA DE " + i + ":");
+							for (int j = 1; j < 11; j++) {
+								System.out.println(i + " x " + j + ": " + i * j);
+								if (j == 10 && i != 20) {
+									System.out.println("Entre com qualquer tecla para exibir  a tabuada de:" + (i + 1));
+									sc.nextLine();
+								}
+							}
+						}
 
 					} else if (exer == 8) {
-						System.out.println("\nSOMA DE 1 A 100:");
+						System.out.println("\nSOMA DOS TERMOS DE UMA P.A. DE 1 A 100 E RAZÃO 1:");
+						int numero = 0;
+						int aux = 1;
+						int i = 1;
+						while (i < 100) {
+							numero = aux + (i + 1);
+							System.out.println(aux + " + " + (i + 1) + ": " + numero);
+							aux = numero;
+							i++;
+						}
+
+						System.out.println("================================");
+
+						int pa = (1 + 100) * 100 / 2;
+						System.out.println("SOMA DE 1 A 100: " + pa);
 
 					} else if (exer == 9) {
-						System.out.println("\nFIBONACCI:");
+						System.out.println("\nOS 30 PRIMEIROS ELEMENTOS DA SEQUÊNCIA FIBONACCI:\n");
+
+						int f1 = 1;
+						int f2 = 0;
+						int aux;
+
+						for (int i = 0; i < 30; i++) {
+
+							System.out.print(f1); // 1 ,
+							if (i != 29)
+								System.out.print(", ");
+							else
+								System.out.print(".");
+							aux = f1; // 1
+							f1 += f2; // 0
+							f2 = aux; // 1
+
+						}
+						System.out.println();
 
 					} else if (exer == 10) {
-						System.out.println("\nBARGAMASCHI:");
+						System.out.println("\nOS 30 PRIMEIROS ELEMENTOS DA SEQUÊNCIA BARGAMASCHI:\n");
+						int f1 = 1;
+						int f2 = 1;
+						int f3 = 3;
+						int[] vect = { 1, 1, 3 };
+						int aux;
 
+						for (int i = 0; i < 30; i++) {
+							if (i < 3)
+								System.out.print(vect[i]);
+							else
+								System.out.print(f1 + f2 + f3); // 5, 9
+							if (i != 9)
+								System.out.print(", ");
+							else
+								System.out.print(".");
+							if (i > 2) {
+								aux = f1 + f2 + f3; // 5 , 9
+								f1 = f2; // 1, 3
+								f2 = f3; // 3, 5
+								f3 = aux; // 5, 9
+							}
+
+						}
+						System.out.println();
 					} else if (exer == 11) {
-						System.out.println("\nN NÚMERO DE SEQUÊNCIAS V1:");
+						System.out.println(
+								"\nSOMA DOS N PRIMEIROS ELEMENTOS DA SEQUÊCIA 2, 5, 10, 17, 26, 37, 50, 65, 82, 101, ... :\n");
+						int j;
+						do {
+						System.out.print(
+								"Informe quantos dos primeiros elementos desejar realizar a soma (Informar um valor positivo e menor do que 100): ");
+							j = sc.nextInt();
+							System.out.println();
+						}while(j<=0||j>100);
+						System.out.println();
+						int soma = 0;
+						int i = 0;
+						int f1 = 2;
+						int f2 = 3;
+						while (i < j) {
+							
+							soma += f1;
 
+							f1 = f2 + f1;
+							f2 = f2 + 2;
+							i++;
+						}
+						
+						System.out.printf("O resultado da soma dos %d primeiros termos da sequência é: %d\n", j, soma);
 					} else if (exer == 12) {
 						System.out.println("\nN NÚMERO DE SEQUÊNCIAS V2:");
 
