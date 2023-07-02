@@ -432,8 +432,8 @@ public class aritimeticaSimplesTeste {
 						System.out.println("| 9  - FIBONACCI;                  10 - BARGAMASCHI;                  |");
 						System.out.println("| 11 - N NÚMERO DE SEQUÊNCIAS V1;  12 - N NÚMERO DE SEQUÊNCIAS V2;    |");
 						System.out.println("| 13 - N NÚMERO DE SEQUÊNCIAS V3;  14 -  MAIOR, SOMA MÉDIA            |");
-						System.out.println("| 15 - MAIOR, MENOR, SOMA, MÉDIA POSITIVOS E NEATIVOS V1;             |");
-						System.out.println("| 16 - MAIOR, MENOR, SOMA, MÉDIA POSITIVOS E NEATIVOS V2;             |");
+						System.out.println("| 15 - MAIOR, MENOR, SOMA, MÉDIA, POSITIVOS E NEATIVOS V1;            |");
+						System.out.println("| 16 - MAIOR, MENOR, SOMA, MÉDIA, POSITIVOS E NEATIVOS V2;            |");
 						System.out.println("| 17 - FATORIAL;                   18 - MEGA SENA;                    |");
 						System.out.println("|  0 - PARA SAIR                                                      |");
 						System.out.println("|_____________________________________________________________________|");
@@ -727,12 +727,175 @@ public class aritimeticaSimplesTeste {
 
 					} else if (exer == 14) {
 						System.out.println("\nMAIOR, SOMA MÉDIA:");
+						int maior = -1000000;
+
+						int n = 10;
+						Integer[] vect = new Integer[n];
+
+						int aux = 0;
+						int soma = 0;
+						int media = 0;
+
+						System.out.println("Entre com 10 Valores positivos: ");
+						for (int i = 0; i < vect.length; i++) {
+							System.out.print("Digite 0 " + (i + 1) + "º valor: ");
+							aux = sc.nextInt();
+							if (aux > maior)
+								maior = aux;
+							if (aux > 0) {
+								vect[i] = aux;
+								soma += vect[i];
+							} else {
+								System.out.println("Erro: O programa não admite valor não positivo");
+								i--;
+							}
+
+							media = soma / vect.length;
+						}
+						System.out.println("O maior Valor: " + maior);
+						System.out.println("A soma dos valores válidos digitados: " + soma);
+						System.out.println("A média aritimédica dos valores válidos digitados: " + media);
 
 					} else if (exer == 15) {
 						System.out.println("\nMAIOR, MENOR, SOMA, MÉDIA POSITIVOS E NEATIVOS V1:");
+						int n;
+						int maior = -10000000;
+						int menor = 10000000;
+						int negativos = 0;
+						int positivos = 0;
+						double percentPositivo;
+						double percentNegativo;
+						int aux = 0;
+						double soma = 0.0;
+						double media = 0.0;
+						do {
+							System.out.print("Informe quantos valores serão analisados (limite de até 20 valores): ");
+							n = sc.nextInt();
+							if (n < 0 || n > 20) {
+								System.out.println("Erro: O programa admite valor até 20.");
+								System.out.println();
+							}
+						} while (n < 0 || n > 20);
+
+						Integer[] vect = new Integer[n];
+
+						for (int i = 0; i < vect.length; i++) {
+							System.out.print("Digite 0 " + (i + 1) + "º valor: ");
+							vect[i] = sc.nextInt();
+
+							if (vect[i] > maior)
+								maior = vect[i];
+
+							if (vect[i] < menor)
+								menor = vect[i];
+							if (vect[i] > 0)
+								positivos++;
+							else
+								negativos++;
+
+							soma += vect[i];
+
+						}
+
+						media = soma / vect.length;
+
+						percentNegativo = 100 * negativos / vect.length;
+
+						percentPositivo = 100 * positivos / vect.length;
+
+						System.out.println("O maior Valor: " + maior);
+						System.out.println("O menor Valor: " + menor);
+						System.out.println("A soma dos valores válidos digitados: " + soma);
+						System.out.printf("A média aritimédica dos valores válidos digitados: %.2f\n", media);
+						System.out.println("O total de positivos: " + positivos);
+						System.out.println("O total de negativos: " + negativos);
+						System.out.println("O percentual de positivos é: " + percentPositivo + "%");
+						System.out.println("O percentual de negativos é: " + percentNegativo + "%");
 
 					} else if (exer == 16) {
 						System.out.println("\nMAIOR, MENOR, SOMA, MÉDIA POSITIVOS E NEATIVOS V2:");
+
+						int n;
+						int maior = -10000000;
+						int menor = 10000000;
+						int negativos = 0;
+						int positivos = 0;
+						double percentPositivo;
+						double percentNegativo;
+						int aux = 0;
+						int soma = 0;
+						int media = 0;
+						String type2;
+						do {
+							do {
+								System.out.print(
+										"Informe quantos valores serão analisados (limite de até 20 valores): ");
+								n = sc.nextInt();
+								if (n < 0 || n > 20) {
+									System.out.println("\nErro: O programa admite valor até 20.");
+									System.out.println();
+								}
+							} while (n < 0 || n > 20);
+
+							Integer[] vect = new Integer[n];
+
+							for (int i = 0; i < vect.length; i++) {
+								System.out.print("Digite 0 " + (i + 1) + "º valor: ");
+								vect[i] = sc.nextInt();
+
+								if (vect[i] > maior)
+									maior = vect[i];
+
+								if (vect[i] < menor)
+									menor = vect[i];
+								if (vect[i] > 0)
+									positivos++;
+								else
+									negativos++;
+
+								soma += vect[i];
+
+							}
+
+							media = soma / vect.length;
+
+							percentNegativo = 100 * negativos / vect.length;
+
+							percentPositivo = 100 * positivos / vect.length;
+
+							System.out.println("O maior Valor: " + maior);
+							System.out.println("O menor Valor: " + menor);
+							System.out.println("A soma dos valores válidos digitados: " + soma);
+							System.out.println("A média aritimédica dos valores válidos digitados: " + media);
+							System.out.println("O total de positivos: " + positivos);
+							System.out.println("O total de negativos: " + negativos);
+							System.out.println("O percentual de positivos é: " + percentPositivo + "%");
+							System.out.println("O percentual de negativos é: " + percentNegativo + "%");
+
+							System.out.println("==========================================");
+
+							do {
+								
+								 maior = -10000000;
+								 menor = 10000000;
+								 negativos = 0;
+								 positivos = 0;
+								 aux = 0;
+								 soma = 0;
+								 media = 0;
+								System.out.print(
+										"Deseja executar esse programa novamente? entre S para SIM e N para NÂO: ");
+								type2 = sc.next().toUpperCase();
+								
+								if (type2.charAt(0) != 'N' && type2.charAt(0) != 'S') {
+									System.out.println("\nErro: O programa admite apenas as opções S para SIM e N para NÂO.\n");
+
+								}
+							} while (type2.charAt(0) != 'N' && type2.charAt(0) != 'S');
+						} while (type2.charAt(0) != 'N');
+
+						System.out.println(
+								"\nPROGRAMA 16 - MAIOR, MENOR, SOMA, MÉDIA POSITIVOS E NEATIVOS V2, FOI ENCERRADO\n");
 
 					} else if (exer == 17) {
 						System.out.println("\nFATORIAL:");
