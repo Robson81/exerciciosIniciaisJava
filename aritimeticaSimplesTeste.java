@@ -790,7 +790,7 @@ public class aritimeticaSimplesTeste {
 								menor = vect[i];
 							if (vect[i] > 0)
 								positivos++;
-							else
+							else if (vect[i] < 0)
 								negativos++;
 
 							soma += vect[i];
@@ -806,7 +806,7 @@ public class aritimeticaSimplesTeste {
 						System.out.println("O maior Valor: " + maior);
 						System.out.println("O menor Valor: " + menor);
 						System.out.println("A soma dos valores válidos digitados: " + soma);
-						System.out.printf("A média aritimédica dos valores válidos digitados: %.2f\n", media);
+						System.out.println("A média aritimédica dos valores válidos digitados: " + media);
 						System.out.println("O total de positivos: " + positivos);
 						System.out.println("O total de negativos: " + negativos);
 						System.out.println("O percentual de positivos é: " + percentPositivo + "%");
@@ -816,20 +816,21 @@ public class aritimeticaSimplesTeste {
 						System.out.println("\nMAIOR, MENOR, SOMA, MÉDIA POSITIVOS E NEATIVOS V2:");
 
 						int n;
-						int maior = -10000000;
-						int menor = 10000000;
+						double maior = -10000000;
+						double menor = 10000000;
 						int negativos = 0;
 						int positivos = 0;
+						int neutro = 0;
 						double percentPositivo;
 						double percentNegativo;
 						int aux = 0;
-						int soma = 0;
-						int media = 0;
+						double soma = 0;
+						double media = 0.0;
 						String type2;
 						do {
 							do {
-								System.out.print(
-										"Informe quantos valores serão analisados (limite de até 20 valores): ");
+								System.out
+										.print("Informe quantos valores serão analisados (limite de até 20 valores): ");
 								n = sc.nextInt();
 								if (n < 0 || n > 20) {
 									System.out.println("\nErro: O programa admite valor até 20.");
@@ -837,11 +838,11 @@ public class aritimeticaSimplesTeste {
 								}
 							} while (n < 0 || n > 20);
 
-							Integer[] vect = new Integer[n];
+							Double[] vect = new Double[n];
 
 							for (int i = 0; i < vect.length; i++) {
 								System.out.print("Digite 0 " + (i + 1) + "º valor: ");
-								vect[i] = sc.nextInt();
+								vect[i] = sc.nextDouble();
 
 								if (vect[i] > maior)
 									maior = vect[i];
@@ -850,8 +851,10 @@ public class aritimeticaSimplesTeste {
 									menor = vect[i];
 								if (vect[i] > 0)
 									positivos++;
-								else
+								else if (vect[i] < 0)
 									negativos++;
+								else
+									neutro++;
 
 								soma += vect[i];
 
@@ -875,20 +878,22 @@ public class aritimeticaSimplesTeste {
 							System.out.println("==========================================");
 
 							do {
-								
-								 maior = -10000000;
-								 menor = 10000000;
-								 negativos = 0;
-								 positivos = 0;
-								 aux = 0;
-								 soma = 0;
-								 media = 0;
+
+								maior = -10000000;
+								menor = 10000000;
+								negativos = 0;
+								positivos = 0;
+								neutro = 0;
+								aux = 0;
+								soma = 0;
+								media = 0;
 								System.out.print(
 										"Deseja executar esse programa novamente? entre S para SIM e N para NÂO: ");
 								type2 = sc.next().toUpperCase();
-								
+
 								if (type2.charAt(0) != 'N' && type2.charAt(0) != 'S') {
-									System.out.println("\nErro: O programa admite apenas as opções S para SIM e N para NÂO.\n");
+									System.out.println(
+											"\nErro: O programa admite apenas as opções S para SIM e N para NÂO.\n");
 
 								}
 							} while (type2.charAt(0) != 'N' && type2.charAt(0) != 'S');
@@ -899,6 +904,59 @@ public class aritimeticaSimplesTeste {
 
 					} else if (exer == 17) {
 						System.out.println("\nFATORIAL:");
+
+						int n;
+						int i;
+						int aux = 0;
+						int fatorial = 1;
+
+						String type2;
+						do {
+							do {
+								System.out.print("Informe um valor positivo para demonstrar e calcular seu fatorial: ");
+								n = sc.nextInt();
+								if (n <= 0) {
+									System.out.println("\nErro: O programa só admite valores positivos.");
+									System.out.println();
+								}
+							} while (n <= 0);
+							System.out.println();
+							i = n;
+
+							while (i >= 1) { // 5 ; 4 ; 3
+								if (i >= 1) {
+
+									fatorial = fatorial * (n - aux);
+
+									aux += 1;
+
+									System.out.print(i);
+								}
+								if (i >= 2)
+									System.out.print(" x ");
+								else
+									System.out.println(": " + fatorial);
+								i--;
+							}
+
+							System.out.println();
+
+							fatorial = 1;
+							aux = 0;
+							do {
+
+								System.out.print(
+										"Deseja executar esse programa novamente? entre S para SIM e N para NÂO: ");
+								type2 = sc.next().toUpperCase();
+								System.out.println();
+								if (type2.charAt(0) != 'N' && type2.charAt(0) != 'S') {
+									System.out.println("\nErro: O programa admite apenas valores positivos.\n");
+
+								}
+							} while (type2.charAt(0) != 'N' && type2.charAt(0) != 'S');
+						} while (type2.charAt(0) != 'N');
+
+						System.out.println("\nPROGRAMA 17 - FATORIAL, FOI ENCERRADO\n");
 
 					} else if (exer == 18) {
 						System.out.println("\nMEGA SENA:");
