@@ -1,15 +1,12 @@
 package ExerciciosParaIniciantes;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
 import java.util.Scanner;
 
-import javax.annotation.processing.SupportedSourceVersion;
 
 import classesBPM.AritmeticaClass;
-import classesBPM.ExtruturasdeRepeticao;
 import classesBPM.ExtruturasdeSelecao;
 
 public class aritimeticaSimplesTeste {
@@ -25,10 +22,8 @@ public class aritimeticaSimplesTeste {
 		String e = "DESAFIO";
 		String option = "";
 		String type;
-		// int aux = 0;
 		AritmeticaClass aritmetica = new AritmeticaClass();
 		ExtruturasdeSelecao selecao = new ExtruturasdeSelecao();
-		ExtruturasdeRepeticao repeticao = new ExtruturasdeRepeticao();
 
 		System.out.println("\nESTE PROGRAMA EXECUTARÁ A LISTA DE EXERCÍCIOS DE ALGORITMOS: SELEÇÃO LAB BPM\n");
 
@@ -59,16 +54,18 @@ public class aritimeticaSimplesTeste {
 					if (count == 0) {
 						System.out.println("\nARITMÉTICA SIMPLES\n");
 						System.out.println("Entre com o código do problema que dejesa resolver: ");
-						System.out.println("|==================================================================|");
-						System.out.println("| 1 - ÁREA DO RETANGULO; 2 - ÁREA DO QUADRADO, DADO SUA ARESTA;    |");
-						System.out.println("| 3 - ÁREA DO QUADRADO, DADO SUA GIAGONAL; 4 - ÁREA DO TRIANGULO   |");
-						System.out.println("| 5 - VOLUME DA ESFERA; 6 - MEDIA ARITIMÉTICA; 7 - MÉDIA GEOMETRICA|");
-						System.out.println("| 8 - MILHAS VS KILOMETROS; 9 - LEI DE OHM; 10 - GRAUS VS FARHENHEIT|");
-						System.out.println("| 11 - ÁREA DO CÍRCULO; 12 - VOL DO CONE; 13 - VELOCID DO AUTOMÓVEL|");
-						System.out.println("| 14 - VOL DO CUBO E ESFERA; 15 - COTAÇÃO DO DOLLAR;               |");
-						System.out.println("| 16 - FUNÇÕES TRIGONOMÉTRICAS; 17 - EXPONENCIAL E LOG NATURAL     |");
-						System.out.println("| 18 - COMPRA E TROCO; ou 0 para SAIR                              |");
-						System.out.println("|__________________________________________________________________|");
+						System.out.println("|===================================================================|");
+						System.out.println("| 1  - ÁREA DO RETANGULO;           2  - ÁREA DO QUADRADO - ARESTA; |");
+						System.out.println("| 3  - ÁREA DO QUADRADO - DIAGONAL; 4  - ÁREA DO TRIANGULO          |");
+						System.out.println("| 5  - VOLUME DA ESFERA;            6  - MEDIA ARITIMÉTICA;         |");
+						System.out.println("| 7  - MÉDIA GEOMETRICA;            8  - MILHAS VS KILOMETROS;      |");
+						System.out.println("| 9  - LEI DE OHM;                  10 - GRAUS VS FARHENHEIT;       |");
+						System.out.println("| 11 - ÁREA DO CÍRCULO;             12 - VOL DO CONE;               |");
+						System.out.println("| 13 - VELOCID DO AUTOMÓVEL;        14 - VOL DO CUBO E ESFERA;      |");
+						System.out.println("| 15 - COTAÇÃO DO DOLLAR;           16 - FUNÇÕES TRIGONOMÉTRICAS;   |");
+						System.out.println("| 17 - EXPONENCIAL E LOG NATURAL    18 - COMPRA E TROCO;	    |");
+						System.out.println("| 0  - PARA SAIR                                                    |");
+						System.out.println("|___________________________________________________________________|");
 						count++;
 						System.out.print("Sua opção: ");
 						type = sc.next();
@@ -765,7 +762,6 @@ public class aritimeticaSimplesTeste {
 						int positivos = 0;
 						double percentPositivo;
 						double percentNegativo;
-						int aux = 0;
 						double soma = 0.0;
 						double media = 0.0;
 						do {
@@ -820,10 +816,8 @@ public class aritimeticaSimplesTeste {
 						double menor = 10000000;
 						int negativos = 0;
 						int positivos = 0;
-						int neutro = 0;
 						double percentPositivo;
 						double percentNegativo;
-						int aux = 0;
 						double soma = 0;
 						double media = 0.0;
 						String type2;
@@ -854,7 +848,6 @@ public class aritimeticaSimplesTeste {
 								else if (vect[i] < 0)
 									negativos++;
 								else
-									neutro++;
 
 								soma += vect[i];
 
@@ -883,8 +876,6 @@ public class aritimeticaSimplesTeste {
 								menor = 10000000;
 								negativos = 0;
 								positivos = 0;
-								neutro = 0;
-								aux = 0;
 								soma = 0;
 								media = 0;
 								System.out.print(
@@ -961,6 +952,59 @@ public class aritimeticaSimplesTeste {
 					} else if (exer == 18) {
 						System.out.println("\nMEGA SENA:");
 
+						Integer[] megaSena = new Integer[60];
+
+						for (int i = 1; i <= megaSena.length; i++) {
+							megaSena[1] = i;
+							if (i < 10)
+								System.out.print("0" + i + " ");
+							else
+								System.out.print(i + " ");
+							if (i == 10 || i == 20 || i == 30 || i == 40 || i == 50 || i == 60)
+								System.out.println();
+						}
+						System.out.println("\nCOMBINAÇÃO SIMPLES:");
+						double aux = 0;
+						double fatorial1 = 1;
+						double fatorial2 = 1;
+						double fatorial3 = 1;
+						double n = 60;
+						double m = 6;
+						double aux2 = n - m;
+						double i = 0;
+
+						i = n;
+						while (i >= 1) {
+
+							fatorial1 = fatorial1 * (n - aux);
+							aux += 1;
+							i--;
+						}
+						i = m;
+						aux = 0;
+						while (i >= 1) {
+
+							fatorial2 = fatorial2 * (m - aux);
+							aux += 1;
+							i--;
+						}
+						i = aux2;
+						aux = 0;
+						while (i >= 1) {
+
+							fatorial3 = fatorial3 * (aux2 - aux);
+							aux += 1;
+							i--;
+						}
+						System.out.println();
+
+						n = fatorial1 / (fatorial2 * fatorial3);
+
+						System.out.printf(
+								"Para ter-se CERTEZA de acertar as 6 dezenas, é necessário realizar um total de " + n
+										+ " jogos de 6 dezenas");
+						System.out.println();
+
 					} else {
 						System.out.print("\nOpção Inválida! Entre com o código do problema, conforme tabela: ");
 						type = sc.next();
@@ -977,8 +1021,86 @@ public class aritimeticaSimplesTeste {
 						num = -1;
 
 				} else if (num == 4) {
-					System.out.println("ESTRUTURAS DE DADOS - MATRIZES");
-					num = -1;
+
+					if (count == 0) {
+						System.out.println("\nESTRUTURAS DE DADOS - MATRIZES\n");
+						System.out.println("Entre com o código do problema que dejesa resolver: ");
+						System.out.println("|=====================================================================|");
+						System.out.println("| 1  - ORDEM INVERSA;           2  - PRODUTO DA MATRIZ V1; 	      |");
+						System.out.println("| 3  - PRODUTO DA MATRIZ V2; 	4  - PESQUISANDO VALOR;	              |");
+						System.out.println("| 5  - LISTANDO AS MULHERES;    6  - MAIORES DE 18 V1;	              |");
+						System.out.println("| 7  - MAIORES DE 18 V2;        8  - ORDEM CRESCENTE;                 |");
+						System.out.println("| 9  - ORDEM DECRESCENTE;       10 - ORDEM ALFABÉTICA;                |");
+						System.out.println("| 11 - MAIS NOVOS PRIMEIRO;  	0  - PARA SAIR		              |");
+						System.out.println("|_____________________________________________________________________|");
+						count++;
+						System.out.print("Sua opção: ");
+						type = sc.next();
+
+						if (isNumeric(type) != null)
+							exer = Integer.valueOf(type);
+					}
+
+					if (exer == 1) {
+						System.out.println("\nORDEM INVERSA:\n");
+						
+						int[] vect = new int[10];
+						System.out.println("Informe 10 valores inteiros a seguir:\n");
+						for (int i = 0; i < vect.length; i++) {
+							System.out.print((i + 1) + "º valor: ");
+							vect[i] = sc.nextInt();
+						}
+						System.out.println("\nValores digitados na ordem inversa a que foram digitados:\n");
+
+						for (int i = vect.length -1; i >= 0; i--) {
+							System.out.println((i+1) + "º Valor: " + vect[i]);
+
+						}
+					} else if (exer == 2) {			
+						
+						System.out.println("\nPRODUTO DA MATRIZ V1:");
+
+					} else if (exer == 3) {
+						System.out.println("\nPRODUTO DA MATRIZ V2:");
+
+					} else if (exer == 4) {
+						System.out.println("\nPESQUISANDO VALOR:");
+
+					} else if (exer == 5) {
+						System.out.println("\nLISTANDO AS MULHERES:");
+
+					} else if (exer == 6) {
+						System.out.println("\nMAIORES DE 18 V1:");
+
+					} else if (exer == 7) {
+						System.out.println("\nMAIORES DE 18 V2:");
+
+					} else if (exer == 8) {
+						System.out.println("\nORDEM CRESCENTE:");
+
+					} else if (exer == 9) {
+						System.out.println("\nORDEM DECRESCENTE:\n");
+
+					} else if (exer == 10) {
+						System.out.println("\nORDEM ALFABÉTICA:\n");
+
+					} else if (exer == 11) {
+						System.out.println("\nMAIS NOVOS PRIMEIROS:\n");
+
+					} else {
+						System.out.print("\nOpção Inválida! Entre com o código do problema, conforme tabela: ");
+						type = sc.next();
+
+						if (isNumeric(type) != null)
+							exer = Integer.valueOf(type);
+					}
+					System.out.print("\nPara continuar, entre com o código do problema ou 0 para sair: ");
+					type = sc.next();
+
+					if (isNumeric(type) != null)
+						exer = Integer.valueOf(type);
+					if (exer == 0)
+						num = -1;
 
 				} else if (num == 5) {
 					System.out.println("DESAFIOS");
