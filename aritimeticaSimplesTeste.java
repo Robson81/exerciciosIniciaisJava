@@ -1059,10 +1059,39 @@ public class aritimeticaSimplesTeste {
 					} else if (exer == 2) {			
 						
 						System.out.println("\nPRODUTO DA MATRIZ V1:");
+						double[] vect = new double[20];
+						System.out.println("Informe 20 valores quaisquer a eguir:\n");
+						for (int i = 0; i < vect.length; i++) {
+							System.out.print((i + 1) + "º valor: ");
+							vect[i] = sc.nextInt();
+						}
+						System.out.print("\nEntre com um valor que irá multiplicar os valores digitados anteriormente :");
+						double mult = sc.nextDouble();
+						System.out.println();
+						for (int i = 0; i < vect.length ; i++) {
+							double aux = vect[i];
+							vect[i] = vect[i]*mult;
+							System.out.printf("%.0f, na posição %d, * %.1f: %.1f \n", aux, i, mult, vect[i]);
+
+						}
 
 					} else if (exer == 3) {
 						System.out.println("\nPRODUTO DA MATRIZ V2:");
-
+						double[] vect = new double[20];
+						double[] vect2 = new double[20];
+						System.out.println("Informe 20 valores quaisquer a eguir:\n");
+						for (int i = 0; i < vect.length; i++) {
+							System.out.print((i + 1) + "º valor: ");
+							vect[i] = sc.nextInt();
+						}
+						System.out.print("\nEntre com um valor que irá multiplicar os valores digitados anteriormente :");
+						double mult = sc.nextDouble();
+						System.out.println();
+						for (int i = 0; i < vect.length ; i++) {
+							vect2[i] = vect[i]*mult;;
+							
+							System.out.printf("%.0f, na posição %d, * %.1f: %.1f \n", vect[i], i, mult, vect2[i]);
+						}
 					} else if (exer == 4) {
 						System.out.println("\nPESQUISANDO VALOR:");
 
