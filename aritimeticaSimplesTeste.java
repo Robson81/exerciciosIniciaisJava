@@ -5,9 +5,9 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Scanner;
 
-
 import classesBPM.AritmeticaClass;
 import classesBPM.ExtruturasdeSelecao;
+import classesBPM.Matrizes;
 
 public class aritimeticaSimplesTeste {
 
@@ -849,7 +849,7 @@ public class aritimeticaSimplesTeste {
 									negativos++;
 								else
 
-								soma += vect[i];
+									soma += vect[i];
 
 							}
 
@@ -1043,7 +1043,7 @@ public class aritimeticaSimplesTeste {
 
 					if (exer == 1) {
 						System.out.println("\nORDEM INVERSA:\n");
-						
+
 						int[] vect = new int[10];
 						System.out.println("Informe 10 valores inteiros a seguir:\n");
 						for (int i = 0; i < vect.length; i++) {
@@ -1052,12 +1052,12 @@ public class aritimeticaSimplesTeste {
 						}
 						System.out.println("\nValores digitados na ordem inversa a que foram digitados:\n");
 
-						for (int i = vect.length -1; i >= 0; i--) {
-							System.out.println((i+1) + "º Valor: " + vect[i]);
+						for (int i = vect.length - 1; i >= 0; i--) {
+							System.out.println((i + 1) + "º Valor: " + vect[i]);
 
 						}
-					} else if (exer == 2) {			
-						
+					} else if (exer == 2) {
+
 						System.out.println("\nPRODUTO DA MATRIZ V1:");
 						double[] vect = new double[20];
 						System.out.println("Informe 20 valores quaisquer a eguir:\n");
@@ -1065,12 +1065,13 @@ public class aritimeticaSimplesTeste {
 							System.out.print((i + 1) + "º valor: ");
 							vect[i] = sc.nextInt();
 						}
-						System.out.print("\nEntre com um valor que irá multiplicar os valores digitados anteriormente :");
+						System.out
+								.print("\nEntre com um valor que irá multiplicar os valores digitados anteriormente :");
 						double mult = sc.nextDouble();
 						System.out.println();
-						for (int i = 0; i < vect.length ; i++) {
+						for (int i = 0; i < vect.length; i++) {
 							double aux = vect[i];
-							vect[i] = vect[i]*mult;
+							vect[i] = vect[i] * mult;
 							System.out.printf("%.0f, na posição %d, * %.1f: %.1f \n", aux, i, mult, vect[i]);
 
 						}
@@ -1084,29 +1085,214 @@ public class aritimeticaSimplesTeste {
 							System.out.print((i + 1) + "º valor: ");
 							vect[i] = sc.nextInt();
 						}
-						System.out.print("\nEntre com um valor que irá multiplicar os valores digitados anteriormente :");
+						System.out
+								.print("\nEntre com um valor que irá multiplicar os valores digitados anteriormente :");
 						double mult = sc.nextDouble();
 						System.out.println();
-						for (int i = 0; i < vect.length ; i++) {
-							vect2[i] = vect[i]*mult;;
-							
+						for (int i = 0; i < vect.length; i++) {
+							vect2[i] = vect[i] * mult;
+							;
+
 							System.out.printf("%.0f, na posição %d, * %.1f: %.1f \n", vect[i], i, mult, vect2[i]);
 						}
 					} else if (exer == 4) {
 						System.out.println("\nPESQUISANDO VALOR:");
+						int n;
+						String tipo;
+						do {
+							System.out.print(
+									"Informe a quantidade de preços que deseja cadastrar (no máximo 20 valores): ");
+							n = sc.nextInt();
+							if (n > 20 || n == 0)
+								System.out.println(
+										"\nERRO! O programa admite apenas valores POSITIVOS E MENORES DO QUE 20.\n");
+
+						} while (n > 20 || n == 0);
+
+						System.out.println();
+
+						List<Double> preco = new ArrayList<>();
+						int[] vect = new int[n];
+
+						for (int i = 0; i < vect.length; i++) {
+
+							System.out.print((i + 1) + "º preço: ");
+							preco.add(sc.nextDouble());
+						}
+
+						do {
+							System.out.println();
+							System.out.print("Informe um preço para consultar a existência no cadastro anterior: ");
+							int position = preco.indexOf(sc.nextDouble());
+							if (position != -1) {
+								System.out.println("\nValor encontrado na posição: " + position);
+							} else
+								System.out.println("\nValor não encontrado!");
+
+							do {
+
+								System.out.print(
+										"\nDeseja realizar uma  nova consultar? Entre com S para SIM ou N para NÃO: ");
+								tipo = sc.next().toUpperCase();
+								if (tipo.charAt(0) != 'S' && tipo.charAt(0) != 'N')
+									System.out.println("\nERRO!");
+
+							} while (tipo.charAt(0) != 'S' && tipo.charAt(0) != 'N');
+
+						} while (tipo.charAt(0) != 'N');
+
+						System.out.println("\nPROGRAMA: PESQUISANDO VALOR, ENCERRADO\n");
 
 					} else if (exer == 5) {
 						System.out.println("\nLISTANDO AS MULHERES:");
+						sc.nextLine();
+						List<Matrizes> list = new ArrayList<>();
+						System.out.println("Digite abaixo os dados 'GÊNERO, NOME e IDADE' de 20 pessoas, atentando para as regras: ");
+						System.out.println("GÊNERO: Admite-se apenas M para MASCULINO e F para FEMININO");
+						System.out.println("IDADE: Admite-se apenas VALORES INTEIROS E POSITÍVOS");
 
+						for (int i = 0; i < 20; i++) {
+							char genero;
+							System.out.println();
+							System.out.println((i+1) + "ª pessoa: ");
+							do {
+								System.out.print("Gênero Sexual: ");
+								String opcao = sc.nextLine().toLowerCase();
+								genero = (opcao.charAt(0) == 'f') ? 'F' : (opcao.charAt(0) == 'm') ? 'M' : 'N';
+
+								if (genero == 'N')
+									System.out.println("\nERRO! Gênero Inválido!");
+							} while (genero != 'F' && genero != 'M');
+							int idade;
+							do {
+								System.out.print("Idade: ");
+								int opcao = sc.nextInt();
+								sc.nextLine();
+								idade = (opcao > 0) ? opcao : 0;
+
+								if (idade == 0)
+									System.out.println("\nERRO! Idade Inválida!");
+							} while (idade < 1);
+
+							System.out.print("Nome: ");
+							String nome = sc.nextLine();
+							
+							if(genero=='F')
+							list.add(new Matrizes(genero, nome, idade));
+						}
+						
+							System.out.println("\nAs Mulheres Cadatradas são: \n");
+							for (Matrizes x : list) {
+								
+								System.out.println(x);
+								
+							}
 					} else if (exer == 6) {
 						System.out.println("\nMAIORES DE 18 V1:");
+						sc.nextLine();
+						List<Matrizes> list = new ArrayList<>();
+						System.out.println("Digite abaixo os dados 'GÊNERO, NOME e IDADE' de 20 pessoas, atentando para as regras: ");
+						System.out.println("GÊNERO: Admite-se apenas M para MASCULINO e F para FEMININO");
+						System.out.println("IDADE: Admite-se apenas VALORES INTEIROS E POSITÍVOS");
+
+						for (int i = 0; i < 20; i++) {
+							char genero;
+							System.out.println();
+							System.out.println((i+1) + "ª pessoa: ");
+							do {
+								System.out.print("Gênero Sexual: ");
+								String opcao = sc.nextLine().toLowerCase();
+								genero = (opcao.charAt(0) == 'f') ? 'F' : (opcao.charAt(0) == 'm') ? 'M' : 'N';
+
+								if (genero == 'N')
+									System.out.println("\nERRO! Gênero Inválido!");
+							} while (genero != 'F' && genero != 'M');
+							int idade;
+							do {
+								System.out.print("Idade: ");
+								int opcao = sc.nextInt();
+								sc.nextLine();
+								idade = (opcao > 0) ? opcao : 0;
+
+								if (idade == 0)
+									System.out.println("\nERRO! Idade Inválida!");
+							} while (idade < 1);
+
+							System.out.print("Nome: ");
+							String nome = sc.nextLine();
+							
+							if(idade>=18)
+							list.add(new Matrizes(genero, nome, idade));
+						}
+						
+							System.out.println("\nOs Maiores de 18 anos são: \n");
+							for (Matrizes x : list) {
+								
+								System.out.println(x);
+								
+							}
+							System.out.println("O total de pessoas listadas são: " + list.size());
 
 					} else if (exer == 7) {
 						System.out.println("\nMAIORES DE 18 V2:");
+						sc.nextLine();
+						List<Matrizes> list = new ArrayList<>();
+						System.out.println("Digite abaixo os dados 'GÊNERO, NOME e IDADE' de 20 pessoas, atentando para as regras: ");
+						System.out.println("GÊNERO: Admite-se apenas M para MASCULINO e F para FEMININO");
+						System.out.println("IDADE: Admite-se apenas VALORES INTEIROS E POSITÍVOS");
+
+						for (int i = 0; i < 20; i++) {
+							char genero;
+							System.out.println();
+							System.out.println((i+1) + "ª pessoa: ");
+							do {
+								System.out.print("Gênero Sexual: ");
+								String opcao = sc.nextLine().toLowerCase();
+								genero = (opcao.charAt(0) == 'f') ? 'F' : (opcao.charAt(0) == 'm') ? 'M' : 'N';
+
+								if (genero == 'N')
+									System.out.println("\nERRO! Gênero Inválido!");
+							} while (genero != 'F' && genero != 'M');
+							int idade;
+							do {
+								System.out.print("Idade: ");
+								int opcao = sc.nextInt();
+								sc.nextLine();
+								idade = (opcao > 0) ? opcao : 0;
+
+								if (idade == 0)
+									System.out.println("\nERRO! Idade Inválida!");
+							} while (idade < 1);
+
+							System.out.print("Nome: ");
+							String nome = sc.nextLine();
+							
+							if(idade>=18)
+							list.add(new Matrizes(genero, nome, idade));
+						}
+						
+							System.out.println("\nOs Maiores de 18 anos são: \n");
+							for (Matrizes x : list) {
+								
+								System.out.println(x);
+								
+							}
+							System.out.println("O total de pessoas listadas são: " + list.size()+ ". E corresponde à: " + 100*list.size()/20 + "% do total");
+							
+							
 
 					} else if (exer == 8) {
-						System.out.println("\nORDEM CRESCENTE:");
-
+						System.out.println("\nORDEM CRESCENTE E ORDEM DECRESCENTE:");
+						Integer[] vect = new Integer[20];
+						System.out.println("Digite abaixo 20 valores inteiros:");
+						for (int i = 0; i < 20; i++) {
+						
+							System.out.println();
+							System.out.println((i+1) + "ª: ");
+;
+						}
+						
+						
 					} else if (exer == 9) {
 						System.out.println("\nORDEM DECRESCENTE:\n");
 
