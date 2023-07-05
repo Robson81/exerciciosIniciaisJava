@@ -1029,9 +1029,9 @@ public class aritimeticaSimplesTeste {
 						System.out.println("| 1  - ORDEM INVERSA;           2  - PRODUTO DA MATRIZ V1; 	      |");
 						System.out.println("| 3  - PRODUTO DA MATRIZ V2; 	4  - PESQUISANDO VALOR;	              |");
 						System.out.println("| 5  - LISTANDO AS MULHERES;    6  - MAIORES DE 18 V1;	              |");
-						System.out.println("| 7  - MAIORES DE 18 V2;        8  - ORDEM CRESCENTE;                 |");
-						System.out.println("| 9  - ORDEM DECRESCENTE;       10 - ORDEM ALFABÉTICA;                |");
-						System.out.println("| 11 - MAIS NOVOS PRIMEIRO;  	0  - PARA SAIR		              |");
+						System.out.println("| 7  - MAIORES DE 18 V2;        8  - ORDEM CRESCENTE/DECRESCENTE;     |");
+						System.out.println("| 9 - ORDEM ALFABÉTICA;        10  - MAIS NOVOS PRIMEIRO;             |");
+						System.out.println("| 0  - PARA SAIR		                                      |");
 						System.out.println("|_____________________________________________________________________|");
 						count++;
 						System.out.print("Sua opção: ");
@@ -1147,14 +1147,15 @@ public class aritimeticaSimplesTeste {
 						System.out.println("\nLISTANDO AS MULHERES:");
 						sc.nextLine();
 						List<Matrizes> list = new ArrayList<>();
-						System.out.println("Digite abaixo os dados 'GÊNERO, NOME e IDADE' de 20 pessoas, atentando para as regras: ");
+						System.out.println(
+								"Digite abaixo os dados 'GÊNERO, NOME e IDADE' de 20 pessoas, atentando para as regras: ");
 						System.out.println("GÊNERO: Admite-se apenas M para MASCULINO e F para FEMININO");
 						System.out.println("IDADE: Admite-se apenas VALORES INTEIROS E POSITÍVOS");
 
 						for (int i = 0; i < 20; i++) {
 							char genero;
 							System.out.println();
-							System.out.println((i+1) + "ª pessoa: ");
+							System.out.println((i + 1) + "ª pessoa: ");
 							do {
 								System.out.print("Gênero Sexual: ");
 								String opcao = sc.nextLine().toLowerCase();
@@ -1176,29 +1177,30 @@ public class aritimeticaSimplesTeste {
 
 							System.out.print("Nome: ");
 							String nome = sc.nextLine();
-							
-							if(genero=='F')
-							list.add(new Matrizes(genero, nome, idade));
+
+							if (genero == 'F')
+								list.add(new Matrizes(genero, nome, idade));
 						}
-						
-							System.out.println("\nAs Mulheres Cadatradas são: \n");
-							for (Matrizes x : list) {
-								
-								System.out.println(x);
-								
-							}
+
+						System.out.println("\nAs Mulheres Cadatradas são: \n");
+						for (Matrizes x : list) {
+
+							System.out.println(x);
+
+						}
 					} else if (exer == 6) {
 						System.out.println("\nMAIORES DE 18 V1:");
 						sc.nextLine();
 						List<Matrizes> list = new ArrayList<>();
-						System.out.println("Digite abaixo os dados 'GÊNERO, NOME e IDADE' de 20 pessoas, atentando para as regras: ");
+						System.out.println(
+								"Digite abaixo os dados 'GÊNERO, NOME e IDADE' de 20 pessoas, atentando para as regras: ");
 						System.out.println("GÊNERO: Admite-se apenas M para MASCULINO e F para FEMININO");
 						System.out.println("IDADE: Admite-se apenas VALORES INTEIROS E POSITÍVOS");
 
 						for (int i = 0; i < 20; i++) {
 							char genero;
 							System.out.println();
-							System.out.println((i+1) + "ª pessoa: ");
+							System.out.println((i + 1) + "ª pessoa: ");
 							do {
 								System.out.print("Gênero Sexual: ");
 								String opcao = sc.nextLine().toLowerCase();
@@ -1220,31 +1222,32 @@ public class aritimeticaSimplesTeste {
 
 							System.out.print("Nome: ");
 							String nome = sc.nextLine();
-							
-							if(idade>=18)
-							list.add(new Matrizes(genero, nome, idade));
+
+							if (idade >= 18)
+								list.add(new Matrizes(genero, nome, idade));
 						}
-						
-							System.out.println("\nOs Maiores de 18 anos são: \n");
-							for (Matrizes x : list) {
-								
-								System.out.println(x);
-								
-							}
-							System.out.println("O total de pessoas listadas são: " + list.size());
+
+						System.out.println("\nOs Maiores de 18 anos são: \n");
+						for (Matrizes x : list) {
+
+							System.out.println(x);
+
+						}
+						System.out.println("O total de pessoas listadas são: " + list.size());
 
 					} else if (exer == 7) {
 						System.out.println("\nMAIORES DE 18 V2:");
 						sc.nextLine();
 						List<Matrizes> list = new ArrayList<>();
-						System.out.println("Digite abaixo os dados 'GÊNERO, NOME e IDADE' de 20 pessoas, atentando para as regras: ");
+						System.out.println(
+								"Digite abaixo os dados 'GÊNERO, NOME e IDADE' de 20 pessoas, atentando para as regras: ");
 						System.out.println("GÊNERO: Admite-se apenas M para MASCULINO e F para FEMININO");
 						System.out.println("IDADE: Admite-se apenas VALORES INTEIROS E POSITÍVOS");
 
 						for (int i = 0; i < 20; i++) {
 							char genero;
 							System.out.println();
-							System.out.println((i+1) + "ª pessoa: ");
+							System.out.println((i + 1) + "ª pessoa: ");
 							do {
 								System.out.print("Gênero Sexual: ");
 								String opcao = sc.nextLine().toLowerCase();
@@ -1266,41 +1269,165 @@ public class aritimeticaSimplesTeste {
 
 							System.out.print("Nome: ");
 							String nome = sc.nextLine();
-							
-							if(idade>=18)
-							list.add(new Matrizes(genero, nome, idade));
+
+							if (idade >= 18)
+								list.add(new Matrizes(genero, nome, idade));
 						}
-						
-							System.out.println("\nOs Maiores de 18 anos são: \n");
-							for (Matrizes x : list) {
-								
-								System.out.println(x);
-								
-							}
-							System.out.println("O total de pessoas listadas são: " + list.size()+ ". E corresponde à: " + 100*list.size()/20 + "% do total");
-							
-							
+
+						System.out.println("\nOs Maiores de 18 anos são: \n");
+						for (Matrizes x : list) {
+
+							System.out.println(x);
+
+						}
+						System.out.println("O total de pessoas listadas são: " + list.size() + ". E corresponde à: "
+								+ 100 * list.size() / 20 + "% do total");
 
 					} else if (exer == 8) {
 						System.out.println("\nORDEM CRESCENTE E ORDEM DECRESCENTE:");
-						Integer[] vect = new Integer[20];
-						System.out.println("Digite abaixo 20 valores inteiros:");
+						int[] vect = { 1, -2, 0, 33, 12, -22, -1, 9, 11, 31, 10, 14, 13, 27, 42, 19, 18, 30, -19, -4 };
+						System.out.println("\nVetor Original de 20 Posições: ");
 						for (int i = 0; i < 20; i++) {
-						
-							System.out.println();
-							System.out.println((i+1) + "ª: ");
-;
+							System.out.print(vect[i]);
+							if (i < 19)
+								System.out.print(", ");
+							else
+								System.out.println(".");
 						}
-						
-						
+						System.out.println();
+						for (int i = 0; i < 20; i++) {
+							for (int j = 0; j < 19; j++) {
+								if (vect[j] > vect[j + 1]) {
+									int aux = vect[j];
+									vect[j] = vect[j + 1];
+									vect[j + 1] = aux;
+								}
+
+							}
+						}
+						System.out.println("\nO Vetor na Ordem Crescente: ");
+						for (int i = 0; i < 20; i++) {
+							System.out.print(vect[i]);
+							if (i < 19)
+								System.out.print(", ");
+							else
+								System.out.println(".");
+						}
+						for (int i = 0; i < 20; i++) {
+							for (int j = 0; j < 19; j++) {
+
+								if (vect[j] < vect[j + 1]) {
+									int aux = vect[j];
+									vect[j] = vect[j + 1];
+									vect[j + 1] = aux;
+								}
+							}
+						}
+						System.out.println();
+						System.out.println("\nO Vetor na Ordem Decrescente: ");
+						for (int i = 0; i < 20; i++) {
+							System.out.print(vect[i]);
+							if (i < 19)
+								System.out.print(", ");
+							else
+								System.out.println(".");
+						}
+
 					} else if (exer == 9) {
-						System.out.println("\nORDEM DECRESCENTE:\n");
-
-					} else if (exer == 10) {
 						System.out.println("\nORDEM ALFABÉTICA:\n");
+						String[] vect = { "Anna", "Laura", "Higor", "Rodolfo", "Ronaldo", "Eduardo", "Paula", "Yanna",
+								"Carol", "Deborah", "Bruno", "Olga", "Sarah", "Katarina", "Luiz", "Joahn", "Freud",
+								"Washington", "Zarah", "Noan" };
+						System.out.println("\nVetor Original de 20 Posições: ");
+						for (int i = 0; i < 20; i++) {
+							System.out.print(vect[i]);
+							if (i < 19)
+								System.out.println(", ");
+							else
+								System.out.println(".");
+						}
+						System.out.println();
+						for (int i = 0; i < 20; i++) {
+							for (int j = 0; j < 19; j++) {
+								if (vect[j].charAt(0) > vect[j + 1].charAt(0)) {
+									String aux = vect[j];
+									vect[j] = vect[j + 1];
+									vect[j + 1] = aux;
+								}
 
-					} else if (exer == 11) {
+							}
+						}
+						System.out.println("\nO Vetor em Ordem Alfabética: ");
+						for (int i = 0; i < 20; i++) {
+							System.out.print(vect[i]);
+							if (i < 19)
+								System.out.println(", ");
+							else
+								System.out.println(".");
+						}
+					} else if (exer == 10) {
+						sc.nextLine();
 						System.out.println("\nMAIS NOVOS PRIMEIROS:\n");
+						// sc.nextLine();
+						List<Matrizes> list = new ArrayList<>();
+						List<Matrizes> aux = new ArrayList<>();
+
+						System.out.println(
+								"Digite abaixo os dados 'GÊNERO, NOME e IDADE' de 20 pessoas, atentando para as regras: ");
+						System.out.println("GÊNERO: Admite-se apenas M para MASCULINO e F para FEMININO");
+						System.out.println("IDADE: Admite-se apenas VALORES INTEIROS E POSITÍVOS");
+
+						for (int i = 0; i < 20; i++) {
+							char genero;
+							System.out.println();
+							System.out.println((i + 1) + "ª pessoa: ");
+							do {
+								System.out.print("Gênero Sexual: ");
+								String opcao = sc.nextLine().toLowerCase();
+								genero = (opcao.charAt(0) == 'f') ? 'F' : (opcao.charAt(0) == 'm') ? 'M' : 'N';
+
+								if (genero == 'N')
+									System.out.println("\nERRO! Gênero Inválido!");
+							} while (genero != 'F' && genero != 'M');
+							int idade;
+							do {
+								System.out.print("Idade: ");
+								int opcao = sc.nextInt();
+								sc.nextLine();
+								idade = (opcao > 0) ? opcao : 0;
+
+								if (idade == 0)
+									System.out.println("\nERRO! Idade Inválida!");
+							} while (idade < 1);
+
+							System.out.print("Nome: ");
+							String nome = sc.nextLine();
+
+							list.add(new Matrizes(genero, nome, idade));
+						}
+
+						boolean troca;
+						for (int i = 0; i < list.size(); i++) {
+							troca = false;
+							for (int j = 0; j < list.size() - i - 1; j++) {
+								if (list.get(j).getIdade() > list.get(j + 1).getIdade()) {
+									aux.clear();
+									aux.add(list.get(j));
+									list.set(j, list.get(j + 1));
+									list.set(j + 1, aux.get(0));
+									troca = true;
+								}
+							}
+							if (!troca) {
+								break;
+							}
+						}
+
+						System.out.println("\nOs As Pessoas Cadastradas em Ordem Crescente de Suas Idades: \n");
+						for (Matrizes x : list) {
+
+							System.out.println(x);
+						}
 
 					} else {
 						System.out.print("\nOpção Inválida! Entre com o código do problema, conforme tabela: ");
