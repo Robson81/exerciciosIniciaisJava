@@ -1,6 +1,7 @@
 package ExerciciosParaIniciantes;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
 import java.util.Scanner;
@@ -9,7 +10,7 @@ import classesBPM.AritmeticaClass;
 import classesBPM.ExtruturasdeSelecao;
 import classesBPM.Matrizes;
 
-public class aritimeticaSimplesTeste {
+public class SelecaoBPM {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -25,10 +26,10 @@ public class aritimeticaSimplesTeste {
 		AritmeticaClass aritmetica = new AritmeticaClass();
 		ExtruturasdeSelecao selecao = new ExtruturasdeSelecao();
 
-		System.out.println("\nESTE PROGRAMA EXECUTARÁ A LISTA DE EXERCÍCIOS DE ALGORITMOS: SELEÇÃO LAB BPM\n");
+		System.out.println("\nESTE PROGRAMA EXECUTARÁ A LISTA DE EXERCÍCIOS DE ALGORITMOS: SELEÇÃO BPM LAB\n");
 
 		do {
-			System.out.println("Entre com o código do TIPO de exercício, conforme tabela a baixo:");
+			System.out.println("Entre com o código do TÓPICO, conforme tabela a baixo:");
 			System.out.println("|==================================================================|");
 			System.out.println("| 1 - ARITMÉTICA SIMPLES                                           |");
 			System.out.println("| 2 - ESTRUTURAS DE SELEÇÃO                                        |");
@@ -234,6 +235,10 @@ public class aritimeticaSimplesTeste {
 							}
 						} while (vPago < sum);
 						System.out.printf("Seu troco Será: %.2f\n", aritmetica.change(vPago, sum));
+					} else if (exer == 0) {
+
+						num = -1;
+
 					} else {
 						System.out.print("\nOpção Inválida! Entre com o código do problema, conforme tabela: ");
 						type = sc.next();
@@ -241,13 +246,16 @@ public class aritimeticaSimplesTeste {
 						if (isNumeric(type) != null)
 							exer = Integer.valueOf(type);
 					}
-					System.out.print("\nPara continuar, entre com o código do problema ou 0 para sair: ");
-					type = sc.next();
 
-					if (isNumeric(type) != null)
-						exer = Integer.valueOf(type);
-					if (exer == 0)
-						num = -1;
+					if (exer != 0) {
+						System.out.print("\nPara continuar, entre com o código do problema ou 0 para sair: ");
+						type = sc.next();
+
+						if (isNumeric(type) != null)
+							exer = Integer.valueOf(type);
+						if (exer == 0)
+							num = -1;
+					}
 				} else if (num == 2) {
 
 					if (count == 0) {
@@ -402,6 +410,10 @@ public class aritimeticaSimplesTeste {
 						System.out.println(
 								"A sua nota final para conseguir aprovação deve ser maior ou igual a: " + notas.get(1));
 
+					} else if (exer == 0) {
+
+						num = -1;
+
 					} else {
 						System.out.print("\nOpção Inválida! Entre com o código do problema, conforme tabela: ");
 						type = sc.next();
@@ -409,13 +421,16 @@ public class aritimeticaSimplesTeste {
 						if (isNumeric(type) != null)
 							exer = Integer.valueOf(type);
 					}
-					System.out.print("\nPara continuar, entre com o código do problema ou 0 para sair: ");
-					type = sc.next();
 
-					if (isNumeric(type) != null)
-						exer = Integer.valueOf(type);
-					if (exer == 0)
-						num = -1;
+					if (exer != 0) {
+						System.out.print("\nPara continuar, entre com o código do problema ou 0 para sair: ");
+						type = sc.next();
+
+						if (isNumeric(type) != null)
+							exer = Integer.valueOf(type);
+						if (exer == 0)
+							num = -1;
+					}
 
 				} else if (num == 3) {
 					if (count == 0) {
@@ -1005,6 +1020,10 @@ public class aritimeticaSimplesTeste {
 										+ " jogos de 6 dezenas");
 						System.out.println();
 
+					} else if (exer == 0) {
+
+						num = -1;
+
 					} else {
 						System.out.print("\nOpção Inválida! Entre com o código do problema, conforme tabela: ");
 						type = sc.next();
@@ -1012,13 +1031,16 @@ public class aritimeticaSimplesTeste {
 						if (isNumeric(type) != null)
 							exer = Integer.valueOf(type);
 					}
-					System.out.print("\nPara continuar, entre com o código do problema ou 0 para sair: ");
-					type = sc.next();
 
-					if (isNumeric(type) != null)
-						exer = Integer.valueOf(type);
-					if (exer == 0)
-						num = -1;
+					if (exer != 0) {
+						System.out.print("\nPara continuar, entre com o código do problema ou 0 para sair: ");
+						type = sc.next();
+
+						if (isNumeric(type) != null)
+							exer = Integer.valueOf(type);
+						if (exer == 0)
+							num = -1;
+					}
 
 				} else if (num == 4) {
 
@@ -1429,6 +1451,10 @@ public class aritimeticaSimplesTeste {
 							System.out.println(x);
 						}
 
+					} else if (exer == 0) {
+
+						num = -1;
+
 					} else {
 						System.out.print("\nOpção Inválida! Entre com o código do problema, conforme tabela: ");
 						type = sc.next();
@@ -1436,17 +1462,219 @@ public class aritimeticaSimplesTeste {
 						if (isNumeric(type) != null)
 							exer = Integer.valueOf(type);
 					}
-					System.out.print("\nPara continuar, entre com o código do problema ou 0 para sair: ");
-					type = sc.next();
 
-					if (isNumeric(type) != null)
-						exer = Integer.valueOf(type);
-					if (exer == 0)
-						num = -1;
+					if (exer != 0) {
+						System.out.print("\nPara continuar, entre com o código do problema ou 0 para sair: ");
+						type = sc.next();
+
+						if (isNumeric(type) != null)
+							exer = Integer.valueOf(type);
+						if (exer == 0)
+							num = -1;
+					}
 
 				} else if (num == 5) {
-					System.out.println("DESAFIOS");
+
+					if (count == 0) {
+						System.out.println("\nDESAFIOS\n");
+						System.out.println("Entre com o código do problema que dejesa resolver: ");
+						System.out.println("|===================================|");
+						System.out.println("| 1  - JOGO DA VELHA;               |");
+						System.out.println("| 2  - BUSCA NA INTERNET; 	    |");
+						System.out.println("| 3  - TOMADAS;                     |");
+						System.out.println("| 0  - PARA SAIR;                   |");
+						System.out.println("|___________________________________|");
+						count++;
+						System.out.print("Sua opção: ");
+						type = sc.next();
+
+						if (isNumeric(type) != null)
+							exer = Integer.valueOf(type);
+					}
+
+					if (exer == 1) {
+						String tipo;
+
+						do {
+							System.out.println("\nJOGO DA VELHA:\n");
+							sc.nextLine();
+							int count1 = 0;
+							int count2 = 0;
+							int n = 9;
+							int i = 0;
+							int j = 0;
+							String movimentoJ1;
+							String movimentoJ2;
+							int resultado = 0;
+							int position = 0;
+
+							List<String> jogoVelha = new ArrayList<>(
+									Arrays.asList("1", "2", "3", "4", "5", "6", "7", "8", "9"));
+
+							int[] vect1 = { 0, 1, 2, 1, 2, 3, 2, 3, 4 };
+							int[] vect2 = { 0, 1, 2, 1, 2, 3, 2, 3, 4 };
+							int aux = 0;
+
+							System.out.printf("  %s ||   %s  || %s \n", jogoVelha.get(0), jogoVelha.get(1),
+									jogoVelha.get(2));
+							System.out.println("====||======||====");
+							System.out.printf("  %s ||   %s  || %s \n", jogoVelha.get(3), jogoVelha.get(4),
+									jogoVelha.get(5));
+							System.out.println("====||======||====");
+							System.out.printf("  %s ||   %s  || %s \n", jogoVelha.get(6), jogoVelha.get(7),
+									jogoVelha.get(8));
+							System.out.println();
+							System.out.println(
+									"Os jogadores deverão informar seus movimentos, de acordo com o número do quadrante exemplificado acima:");
+							System.out.println();
+
+							System.out.print("Informe o nome do 1ª jogador: ");
+							String jogador1 = sc.nextLine().toUpperCase();
+							System.out.print("Informe o nome do 2º jogador: ");
+							String jogador2 = sc.nextLine().toUpperCase();
+
+							do {
+								do {
+									System.out.println();
+									System.out.print(jogador1 + ", informe seu movimento: ");
+									movimentoJ1 = sc.next();
+									position = jogoVelha.indexOf(movimentoJ1);
+									if (position != -1) {
+										jogoVelha.set(position, "X");
+										count1 += vect1[position];
+										i++;
+									} else
+										System.out.println("\nERRO: Movimento indisponível\n");
+								} while (position == -1);
+
+								System.out.println("\n");
+								System.out.printf("  %s ||   %s  || %s \n", jogoVelha.get(0), jogoVelha.get(1),
+										jogoVelha.get(2));
+								System.out.println("====||======||====");
+								System.out.printf("  %s ||   %s  || %s \n", jogoVelha.get(3), jogoVelha.get(4),
+										jogoVelha.get(5));
+								System.out.println("====||======||====");
+								System.out.printf("  %s ||   %s  || %s \n", jogoVelha.get(6), jogoVelha.get(7),
+										jogoVelha.get(8));
+								if (i >= 3 && count1 == 3 || i >= 3 && count1 == 6 || i >= 3 && count1 == 9) {
+									System.out.println();
+									System.out.println(jogador1 + " VENCEU!!!");
+									resultado = -1;
+									aux = 0;
+								} else
+									aux = -1;
+
+								if (aux == -1) {
+									do {
+										System.out.println();
+										System.out.print(jogador2 + ", informe seu movimento: ");
+										movimentoJ2 = sc.next();
+										position = jogoVelha.indexOf(movimentoJ2);
+										if (position != -1) {
+											jogoVelha.set(position, "O");
+											count2 += vect2[position];
+											j++;
+										} else
+											System.out.println("\nERRO: Movimento indisponível\n");
+									} while (position == -1);
+
+									System.out.println("\n");
+									System.out.printf("  %s ||   %s  || %s \n", jogoVelha.get(0), jogoVelha.get(1),
+											jogoVelha.get(2));
+									System.out.println("====||======||====");
+									System.out.printf("  %s ||   %s  || %s \n", jogoVelha.get(3), jogoVelha.get(4),
+											jogoVelha.get(5));
+									System.out.println("====||======||====");
+									System.out.printf("  %s ||   %s  || %s \n", jogoVelha.get(6), jogoVelha.get(7),
+											jogoVelha.get(8));
+									if (j >= 3 && count2 == 3 || j >= 3 && count2 == 6 || j >= 3 && count2 == 9) {
+										System.out.println();
+										System.out.println(jogador2 + " VENCEU!!!");
+										resultado = -1;
+										// aux = 0;
+									}
+									if (j == 4) {
+										System.out.println("\nEMPATE\n");
+										resultado = -1;
+									}
+								}
+							} while (resultado != -1);
+
+							do {
+
+								System.out.print(
+										"\nDeseja realizar uma  nova partida? Entre com S para SIM ou N para NÃO: ");
+								tipo = sc.next().toUpperCase();
+								if (tipo.charAt(0) != 'S' && tipo.charAt(0) != 'N')
+									System.out.println("\nERRO!");
+
+							} while (tipo.charAt(0) != 'S' && tipo.charAt(0) != 'N');
+
+						} while (tipo.charAt(0) != 'N');
+
+						System.out.println("\nDESAFIO: JOGO DA VELHA, FOI ENCERRADO\n");
+
+					} else if (exer == 2) {
+
+						System.out.println("\nBUSCA NA INTERNET:");
+						int t;
+						do {
+							System.out.print("Informe o total de pessoas 't' que clicaram no terceiro link: ");
+							t = sc.nextInt();
+							System.out.println();
+							if (t < 1 || t > 1000)
+								System.out.println("ERRO! O prorama admite apenas 0> t <1001:\n");
+						} while (t < 1 || t > 1000);
+
+						int link = 4 * t;
+
+						System.out.println("Total de pessoas que clicaram no terceiro link: " + link);
+
+					} else if (exer == 3) {
+						System.out.println("\nTOMADA:");
+
+						int soma = 0;
+						int[] vect = new int[4];
+						System.out.println("Entre com a quantidade de tomadas 't' que cada régua possui: ");
+
+						for (int i = 0; i < vect.length; i++) {
+							System.out.print((i + 1) + "ª Régua: ");
+							int aux = sc.nextInt();
+							if (aux > 0 && aux < 7) {
+								vect[i] = aux;
+								soma += vect[i];
+							} else {
+								System.out.println("\nERRO! O programa admite apenas 0> t <1001:\n");
+								i--;
+							}
+						}
+
+						System.out.println("O total de tomadas no sistema é: " + (soma - 3));
+
+					} else if (exer == 0) {
+
+						num = -1;
+
+					} else {
+						System.out.print("\nOpção Inválida! Entre com o código do problema, conforme tabela: ");
+						type = sc.next();
+
+						if (isNumeric(type) != null)
+							exer = Integer.valueOf(type);
+					}
+
+					if (exer != 0) {
+						System.out.print("\nPara continuar, entre com o código do problema ou 0 para sair: ");
+						type = sc.next();
+
+						if (isNumeric(type) != null)
+							exer = Integer.valueOf(type);
+						if (exer == 0)
+							num = -1;
+					}
+				} else if (num == 0) {
 					num = -1;
+					type = "0";
 				} else {
 
 					System.out.print("\nOpção Inválida! Entre com o código do TIPO de exercício, conforme tabela: ");
@@ -1458,9 +1686,15 @@ public class aritimeticaSimplesTeste {
 				}
 
 			} while (num != -1);
-			System.out.println("\n\nO programa: " + option + " foi encerrado. Se deseja continuar:\n");
-			sc.nextLine();
+			if (type != "0") {
+				System.out.println("\n\nO programa: " + option + " foi encerrado. Se deseja continuar:\n");
+				option = "";
+				sc.nextLine();
+			}
 		} while (type != "0");
+
+		System.out.println("\nFIM DO PROGRAMA: EXERCÍCIOS DE ALGORITMOS: SELEÇÃO BPM LAB\n");
+
 		sc.close();
 	}
 
@@ -1473,5 +1707,4 @@ public class aritimeticaSimplesTeste {
 
 			return null;
 	}
-
 }
